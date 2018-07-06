@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('div').addEventListener('dragenter', function (e) {
+                e.stopPropagation()
+                e.preventDefault()
+                console.log('dragenter:', e)
+            }, false);
+            document.querySelector('div').addEventListener('dragleave', function (e) {
+                e.stopPropagation()
+                e.preventDefault()
+                console.log('dragleave:', e)
+            }, false);
+            document.querySelector('div').addEventListener('dragover', function (e) {
+                e.stopPropagation()
+                e.preventDefault()
+                console.log('dragover:', e)
+            }, false);
+            document.querySelector('div').addEventListener('drop', function (e) {
+                e.stopPropagation()
+                e.preventDefault()
+                console.log('drop:', e)
+                var dt = e.dataTransfer
+                var files = dt.files
+                console.log(files)
+            }, false)
+        }, false)
+    </script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+</body>
+
+</html>
